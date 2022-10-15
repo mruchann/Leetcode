@@ -12,21 +12,15 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         
+        if (!head) return nullptr;
         
-        int size = 0;
-        ListNode *iterator = head;
+        ListNode *middle, *end = head; // two pointers technique
         
-        while (iterator != nullptr) // finding the size of the linked list.
+        while (end && end->next) // we shouldn't delete this end because at the final check, we'll get segfault. 
         {
-            size++;
-            iterator = iterator->next;
+            middle = middle->next;
+            end = end->next->next;
         }
-        int i = 0;
-        while (i < size/2)
-        {
-            head = head->next;
-            i++;
-        }
-        return head;
+        return middle;
     }
 };
