@@ -11,7 +11,7 @@ public:
         for (auto &item: ransomNote) umap[item]--;
 
         for (auto &item: umap) 
-            if (item.second < 0)
+            if (item.second < 0) // item.second -> value
                 return false;
         
         return true;
