@@ -8,8 +8,11 @@ public:
         
         for (auto &item: magazine) umap[item]++;
         
-        for (auto &item: ransomNote)
-            if (!umap[item]--) return false;
+        for (auto &item: ransomNote) umap[item]--;
+
+        for (auto &item: umap) 
+            if (item.second < 0)
+                return false;
         
         return true;
     }
