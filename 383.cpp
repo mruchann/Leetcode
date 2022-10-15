@@ -2,6 +2,8 @@ class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
         
+        if (ransomNote.size() > magazine.size()) return false;
+        
         unordered_map<char, int> umap;
         
         // Mapping from characters to the number of occurences of these characters in magazine.
@@ -16,6 +18,4 @@ public:
         
         return true;
     }
-        
-        
 };
