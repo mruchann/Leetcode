@@ -4,11 +4,11 @@ public:
         unordered_map<char, int> umap;
         if (s.size() != t.size()) return false; // short circuit
         for (int i = 0; i < s.size(); i++)
-            umap[s[i]]++; // adding characters to the umap
+            umap[s[i]]++; // addition
         for (int i = 0; i < t.size(); i++)
-            umap[t[i]]--; // consuming characters to the umap
+            umap[t[i]]--; // consumption
         for (auto& item: umap)
-            if (item.second) // values except zero evaluate to true, then return false
+            if (item.second) // values except zero evaluate to true
                 return false;
         return true;
     }
