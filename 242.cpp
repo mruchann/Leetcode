@@ -36,7 +36,7 @@ public:
             alphabet[t[i] - 'a']--; // consumption
         
         for (int i = 0; i < 26; i++)
-            if (alphabet[i])
+            if (alphabet[i]) // if other than 0
                 return false;
         
         return true;
