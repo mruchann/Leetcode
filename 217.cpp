@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // Time: O(n), Space: O(n)
 public:
     bool containsDuplicate(vector<int>& nums) {
         
@@ -11,7 +11,7 @@ public:
     }
 };
 
-class Solution {
+class Solution { // Time: O(n), Space: O(n)
 public:
     bool containsDuplicate(vector<int>& nums) {
         unordered_set<int> s;
