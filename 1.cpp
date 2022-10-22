@@ -12,9 +12,10 @@ public:
         
         for (int i = 0; i < nums.size(); i++)
         {
-            if (umap.find(target-nums[i]) != umap.end()) // check if the complement exists
+            int diff = target-nums[i];
+            if (umap.find(diff) != umap.end()) // check if the complement exists
             {
-                result.push_back(umap[target-nums[i]]); // complement's array index
+                result.push_back(umap[diff]); // complement's array index
                 result.push_back(i); // array index
             }
             umap[nums[i]] = i; // match each array element with the corresponding index.
