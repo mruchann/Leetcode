@@ -6,21 +6,23 @@ public:
         
         //So, we can tolarate 3+3 = 6 case. Otherwise, our map wouldn't work since 3 will be mapped to 1(index). We would lost 0(index).
         
-        vector<int>result;
-        
-        unordered_map<int, int> umap;
+        unordered_map<int, int> m;
+        vector<int> result;
         
         for (int i = 0; i < nums.size(); i++)
         {
-            int diff = target-nums[i];
-            if (umap.find(diff) != umap.end()) // check if the complement exists
+            int complement = target-nums[i];
+            
+            if (m.find(complement) != m.end()) // check if the complement exists
             {
-                result.push_back(umap[diff]); // complement's array index
+                result.push_back(m[complement]); // complement's array index
                 result.push_back(i); // array index
+                break;
             }
-            umap[nums[i]] = i; // match each array element with the corresponding index.
+            
+            else
+                m[nums[i]] = i; // match each array element with the corresponding index.
         }
-        
         return result;
     }
 };
