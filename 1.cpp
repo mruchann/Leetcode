@@ -16,7 +16,7 @@ public:
             if (m.find(complement) != m.end()) // check if the complement exists
             {
                 result.push_back(m[complement]); // complement's array index
-                result.push_back(i); // array index
+                result.push_back(i); // current's array index
                 break;
             }
             
