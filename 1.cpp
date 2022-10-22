@@ -4,7 +4,7 @@ public:
 
         // First, check the map and then add to the map.
         
-        //So, we can tolarate 3+3 = 6 case. Otherwise, our map wouldn't work since 3 will be mapped to 1(index). We would lost 0(index).
+        // So, we can tolarate 3+3 = 6 case. Otherwise, our map wouldn't work since 3 will be mapped to 1(index). We would lost 0(index).
         
         unordered_map<int, int> m;
         vector<int> result;
