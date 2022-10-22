@@ -14,8 +14,8 @@ public:
         {
             if (umap.find(target-nums[i]) != umap.end()) // check if the complement exists
             {
-                result.push_back(umap[target-nums[i]]);
-                result.push_back(i);
+                result.push_back(umap[target-nums[i]]); // complement's array index
+                result.push_back(i); // array index
             }
             umap[nums[i]] = i; // match each array element with the corresponding index.
         }
