@@ -14,13 +14,13 @@ public:
         
         if (!head) return nullptr;
         
-        ListNode *middle, *end = head; // two pointers technique
+        ListNode *slow = head, *fast = head; // two pointers technique
         
-        while (end && end->next) // we shouldn't delete this end because at the final check, we'll get segfault. 
+        while (fast && fast->next) // we shouldn't delete this end because at the final check, we'll get segfault. 
         {
-            middle = middle->next;
-            end = end->next->next;
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        return middle;
+        return slow;
     }
 };
