@@ -14,7 +14,7 @@ public:
             result[i] = row;
         }
         
-        // Solutions with resize and push_back are also available.
+        // Solutions with resize and push_back also exist.
 
         return result;
     }
