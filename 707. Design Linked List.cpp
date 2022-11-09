@@ -1,10 +1,13 @@
+// check out the comment lines, they're very important!
+
 class Node 
 {
 public:
     int val;
-    Node *next;
-    Node(): val(0), next(nullptr) {}
-    Node(int data): val(data), next(nullptr) {}
+    Node *prev, *next;
+    
+    Node(): val(0), prev(nullptr), next(nullptr) {}
+    Node(int data): val(data), prev(nullptr), next(nullptr) {}
 };
 
 class MyLinkedList 
@@ -34,47 +37,45 @@ public:
     
     void addAtHead(int val) 
     {
-        Node *newNode = new Node(val);
-        newNode->next = head;
-        head = newNode;
-        size++;
+        addAtIndex(0, val);
     }
     
     void addAtTail(int val) 
     {
-        if (head == nullptr) 
-            addAtHead(val);
-        else
-        {
-            Node *newNode = new Node(val);            
-            Node *temp = head;
-        
-            while (temp->next != nullptr)
-                temp = temp->next;
-            
-            temp->next = newNode;
-            size++;
-        }
+        addAtIndex(size, val);
     }
     
     void addAtIndex(int index, int val) 
     {
-        if (index >= 0 && index <= size)
+        if (index >= 0 && index <= size) 
         {
+            Node *newNode = new Node(val); 
+            
             if (index == 0) 
-                addAtHead(val);
+            {
+                if (head == nullptr)
+                    head = newNode;
+                else
+                {
+                    newNode->next = head;
+                    head->prev = newNode;
+                    head = newNode;
+                }
+            }
             else
             {
                 Node *temp = head;
-                Node *newNode = new Node(val);    
-                
+   
                 for (int i = 0; i < index - 1; i++)
                     temp = temp->next;
                 
                 newNode->next = temp->next;
+                newNode->prev = temp;
+                if (temp->next) // append
+                    temp->next->prev = newNode;
                 temp->next = newNode;
-                size++;                   
-            }    
+            }  
+            size++;               
         }
     }
     
@@ -86,29 +87,22 @@ public:
             if (index == 0)
             {
                 head = head->next;
+                if (head != nullptr) // size = 1
+                    head->prev = nullptr;
                 delete temp;
                 temp = nullptr;
             }
             else
             {
-                for (int i = 0; i < index - 1; i++)
+                for (int i = 0; i < index; i++)
                     temp = temp->next;
-                Node *deletedNode = temp->next;
-                temp->next = deletedNode->next;
-                delete deletedNode;
-                deletedNode = nullptr;
+                temp->prev->next = temp->next;
+                if (temp->next != nullptr) // delete last element
+                    temp->next->prev = temp->prev;
+                delete temp;
+                temp = nullptr;
             }
             size--; 
         }
     }
 };
-
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * MyLinkedList* obj = new MyLinkedList();
- * int param_1 = obj->get(index);
- * obj->addAtHead(val);
- * obj->addAtTail(val);
- * obj->addAtIndex(index,val);
- * obj->deleteAtIndex(index);
- */
