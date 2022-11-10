@@ -32,12 +32,10 @@ public:
         string result;
         for (int i = 0; i < n; i++)
         {
-            if (result.empty())
-                result.push_back(s[i]);
-            else if (s[i] == result.back())
+            if (!result.empty() && s[i] == result.back())
                 result.pop_back();
             else
-                result.push_back(s[i]);        
+                result.push_back(s[i]);  
         }
         return result;
     }
