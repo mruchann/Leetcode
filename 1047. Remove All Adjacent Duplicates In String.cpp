@@ -23,3 +23,22 @@ public:
         return result;
     }
 };
+
+class Solution {
+public:
+    string removeDuplicates(string s) 
+    {
+        int n = s.length();
+        string result;
+        for (int i = 0; i < n; i++)
+        {
+            if (result.empty())
+                result.push_back(s[i]);
+            else if (s[i] == result.back())
+                result.pop_back();
+            else
+                result.push_back(s[i]);        
+        }
+        return result;
+    }
+};
