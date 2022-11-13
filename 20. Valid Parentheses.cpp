@@ -35,6 +35,6 @@ public:
                     stck.pop();
             }
         }
-        return stck.empty(); // return false if still there is unmatched (, {, [
+        return stck.empty(); // return false if there is still unmatched (, {, [
     }    
 };
