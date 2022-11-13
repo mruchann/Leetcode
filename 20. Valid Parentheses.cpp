@@ -19,22 +19,22 @@ public:
     }
     bool isValid(string s) 
     {
-        stack<char> stck;
+        stack<char> open;
         
         for (char c : s)
         {
             if (isOpen(c))
-                stck.push(c);  
+                open.push(c);  
             else
             {
-                if (stck.empty()) // ]{{}[()] is wrong
+                if (open.empty()) // ]{{}[()] is wrong
                     return false;
-                else if (!isPair(stck.top(), c)) // (} is wrong
+                else if (!isPair(open.top(), c)) // (} is wrong
                     return false;
                 else // if they match, pop the open one.
-                    stck.pop();
+                    open.pop();
             }
         }
-        return stck.empty(); // return false if there is still unmatched (, {, [
+        return open.empty(); // return false if still there is unmatched (, {, [
     }    
 };
