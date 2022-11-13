@@ -3,6 +3,27 @@ public:
     int distinctAverages(vector<int>& nums) 
     {
         unordered_set<float> s;
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int i = 0, j = n - 1;
+        
+// nums.length() is even number, i < j is fine
+// we don't need to divide the sum by 2.0
+// distinct sum means distinct average
+// we only need how many different sums we have        
+        
+        while(i < j)
+            s.insert(nums[i++] + nums[j--]);
+        
+        return s.size();
+    }
+};
+
+class Solution {
+public:
+    int distinctAverages(vector<int>& nums) 
+    {
+        unordered_set<float> s;
         float average;
         int max, min;
         while (!nums.empty())
