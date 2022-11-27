@@ -17,8 +17,8 @@ public:
         {
             if (root->left == nullptr && root->right == nullptr) // leaf node
             {
-                delete root; root = nullptr;
-                return root;
+                delete root; 
+                root = nullptr;
             }
             
             else if (root->left == nullptr || root->right == nullptr) // one child
@@ -28,8 +28,8 @@ public:
                     root = root->right;
                 else if (root->right == nullptr)
                     root = root->left;
-                delete temp; temp = nullptr;
-                return root;
+                delete temp; 
+                temp = nullptr;
             }
             
             else // two child
