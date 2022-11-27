@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int sumOfLeftLeaves(TreeNode* root) // at least one element
+    int sumOfLeftLeaves(TreeNode* root)
     {
         if (root == nullptr) return 0;
         
