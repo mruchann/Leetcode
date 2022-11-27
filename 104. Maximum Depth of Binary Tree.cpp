@@ -4,8 +4,6 @@ public:
     {
         if (root == nullptr)
             return 0;
-        else if (root->left == nullptr && root->right == nullptr) // leaf node
-            return 1;
         else
             return max(maxDepth(root->left), maxDepth(root->right)) + 1;  
     }
