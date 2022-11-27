@@ -1,5 +1,25 @@
 class Solution {
 public:
+    bool isValidBSTHelper(TreeNode* root, long long lower_bound, long long upper_bound)
+    {
+        if (root == nullptr) 
+            return true;
+            
+        else if (root->val <= lower_bound || root->val >= upper_bound) 
+            return false;
+        
+        return isValidBSTHelper(root->left, lower_bound, root->val) 
+            && isValidBSTHelper(root->right, root->val, upper_bound); 
+    }
+    
+    bool isValidBST(TreeNode* root) 
+    {
+        return isValidBSTHelper(root, LLONG_MIN, LLONG_MAX);
+    }
+};
+
+class Solution {
+public:
     bool isSubtreeLesser(TreeNode* root, int value)
     {
         if (root == nullptr) return true;
