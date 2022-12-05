@@ -16,7 +16,7 @@ public:
         
         ListNode *slow = head, *fast = head; // two pointers technique
         
-        while (fast && fast->next) // we shouldn't delete this end because at the final check, we'll get segfault. 
+        while (fast && fast->next)
         {
             slow = slow->next;
             fast = fast->next->next;
