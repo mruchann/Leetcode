@@ -15,15 +15,7 @@ public:
                 }
             }
             if (result == -1) 
-            {
-                result++;
-                int k = pow(10, s.length()-1);
-                for (char &c: s)
-                {
-                    result += k * (c - '0');  
-                    k /= 10;
-                }
-            }
+                result = stoi(s);
             final_result = max(final_result, result);
         }
         return final_result;
