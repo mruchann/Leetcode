@@ -3,6 +3,35 @@ public:
     bool isCompleteTree(TreeNode* root) 
     {
         queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty())
+        {
+            TreeNode* top = q.front();
+            q.pop();
+            if (top == nullptr) 
+                break;
+            else
+            {
+                q.push(top->left);
+                q.push(top->right);
+            }    
+        }
+        while (!q.empty())
+        {
+            TreeNode* top = q.front();
+            q.pop();
+            if (top != nullptr)
+                return false;
+        }
+        return true;
+    }
+};
+
+class Solution {
+public:
+    bool isCompleteTree(TreeNode* root) 
+    {
+        queue<TreeNode*> q;
         queue<TreeNode*> tq;
         q.push(root);
         while (!q.empty())
