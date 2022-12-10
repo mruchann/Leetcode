@@ -30,7 +30,6 @@ public:
         return true;
     }
 };
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -42,4 +41,3 @@ public:
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
