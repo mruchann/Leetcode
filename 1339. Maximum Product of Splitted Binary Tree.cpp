@@ -2,7 +2,6 @@ class Solution {
 public:
     const long long mod = 1e9+7;
     long long totalSum = 0, result = 1;
-
     long long Sum(TreeNode* root)
     {
         if (root== nullptr)
@@ -10,7 +9,6 @@ public:
         else
             return root->val + Sum(root->left) + Sum(root->right);
     }
-
     long long Traverse(TreeNode* root) // calculates subTreeSum and result
     {
         if (root == nullptr)
